@@ -2,6 +2,15 @@ require 'rails_helper'
 
 feature 'client views payments methods' do
   scenario 'sucessfully' do
-    admin = create(:admins)
+    client = create(:client)
+    payment = create(:payment_method, name: 'Débito')
+    payment1 = create(:payment_method, name: 'Crédito')
+
+    login_as client
+    visit client_dashboard_index_path
+    click_on 'Meios de Pagamento'
+
+    expect(page).to have_content(payment.name)
+    expect(page).to have_content(payment1.name)
   end
 end
