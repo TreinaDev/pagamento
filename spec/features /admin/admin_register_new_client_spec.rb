@@ -13,7 +13,7 @@ feature 'Admin register a new client' do
     fill_in 'Email', with: 'client@teste.com'
     fill_in 'Senha', with: '123teste'
 
-    click_on 'Salvar'
+    click_on 'Salvar' 
 
     
   end
