@@ -1,4 +1,12 @@
-<%= form_for payment_method, local: true do |f| %>
+<% if @payment_method.errors.full_messages.any? %>
+  <ul>
+    <% @payment_method.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @payment_method, local: true do |f| %>
   <%= f.label :name, 'Nome' %>
   <%= f.text_field :name %>
 

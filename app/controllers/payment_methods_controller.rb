@@ -13,9 +13,13 @@ class PaymentMethodsController < ApplicationController
 
   def create
     @payment_method = PaymentMethod.new(payment_method_params)
-    @payment_method.save
-    flash[:notice] = 'Meio de pagamento cadastrado com sucesso!'
-    redirect_to @payment_method
+
+    if @payment_method.save
+      flash[:notice] = 'Meio de pagamento cadastrado com sucesso!'
+      redirect_to @payment_method
+    else
+      render :new
+    end
   end
 
 
