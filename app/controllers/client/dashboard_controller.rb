@@ -1,7 +1,7 @@
-class Client::DashboardController < ApplicationController
-  before_action :authenticate_client!
+class Client
+  class DashboardController < ApplicationController
+    before_action :authenticate_client!
 
-  def index
-    
+    def index; end
   end
 end

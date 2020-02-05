@@ -13,7 +13,6 @@ feature 'client views payments methods' do
     expect(page).to have_content(payment.name)
     expect(page).to have_content(payment1.name)
   end
-
   scenario 'and must be logged in' do
     visit client_dashboard_index_path
 
