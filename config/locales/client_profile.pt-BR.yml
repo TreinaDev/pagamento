@@ -10,5 +10,6 @@ pt-BR:
         address: 'Endereço'
         phone: 'Telefone'
         email: 'Email'
+        password: 'Senha'
 
         

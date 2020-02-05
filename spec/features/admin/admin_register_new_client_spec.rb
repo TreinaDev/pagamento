@@ -13,7 +13,6 @@ feature 'Admin register a new client' do
     fill_in 'Endereço', with: 'Av. Teste, 1000'
     fill_in 'Telefone', with: '(11)2222-9999'
     fill_in 'Email', with: 'client@teste.com'
-    fill_in 'Senha', with: '123teste'
 
     click_on 'Criar'
     
@@ -22,6 +21,6 @@ feature 'Admin register a new client' do
     expect(page).to have_content('Luizinho')
     expect(page).to have_content('Av. Teste, 1000')
     expect(page).to have_content('(11)2222-9999')
-    expect(page).to have_content('cliente@teste.com')
+    expect(page).to have_content('client@teste.com')
   end
 end
