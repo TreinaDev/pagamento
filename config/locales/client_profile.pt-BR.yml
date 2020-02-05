@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      client_profile: 'Perfil do Candidato'
+    attributes:
+      client_profile:
+        cnpj: 'CNPJ'
+        company_name: 'Razão Social'
+        manager: 'Representante'
+        address: 'Endereço'
+        phone: 'Telefone'
+        email: 'Email'
+
+        

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_235435) do
+ActiveRecord::Schema.define(version: 2020_02_05_004252) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,9 +25,16 @@ ActiveRecord::Schema.define(version: 2020_02_03_235435) do
   end
 
   create_table "client_profiles", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cnpj"
+    t.string "company_name"
+    t.string "manager"
+    t.string "address"
+    t.string "phone"
+    t.integer "client_id"
+    t.string "email"
+    t.index ["client_id"], name: "index_client_profiles_on_client_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -48,4 +55,5 @@ ActiveRecord::Schema.define(version: 2020_02_03_235435) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "client_profiles", "clients"
 end
