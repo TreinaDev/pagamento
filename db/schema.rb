@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_004252) do
+ActiveRecord::Schema.define(version: 2020_02_05_222427) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_02_05_004252) do
     t.string "phone"
     t.integer "client_id"
     t.string "email"
+    t.string "auth_token"
+    t.index ["auth_token"], name: "index_client_profiles_on_auth_token", unique: true
     t.index ["client_id"], name: "index_client_profiles_on_client_id"
   end
 
