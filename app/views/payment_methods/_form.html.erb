@@ -1,0 +1,20 @@
+<% if @payment_method.errors.full_messages.any? %>
+  <ul>
+    <% @payment_method.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @payment_method, local: true do |f| %>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :tax, 'Taxa'%>
+  <%= f.number_field :tax %>
+
+  <%= f.label :image, 'Imagem'%>
+  <%= f.file_field :image %>
+
+  <%= f.submit 'Salvar'%>
+<% end %>

@@ -1,7 +1,12 @@
 <h1>Meios de Pagamento</h1>
 
-<% @payments.each do |payment| %>
+<% @payment_methods.each do |payment| %>
     <p><%= payment.name %></p> 
 <% end %>
 
+<% if @payment_methods.any? %>
+  <h2>Não há meios de pagamento cadastrados</h2>
+<% end %>
+
+<%= link_to 'Cadastrar novo meio de pagamento', new_payment_method_path %>
 <%= link_to 'Voltar', :back %>

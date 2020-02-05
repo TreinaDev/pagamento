@@ -1,0 +1,10 @@
+<%= %>
+
+<%= notice %>
+<h1>Meio de pagamento: <%= @payment_method.name%> </h1>
+
+<% if @payment_method.image.attached? %>
+  <%= image_tag(@payment_method.image, size: "25x25") %>
+<% end %>
+
+<p><%= "Taxa: #{@payment_method.tax*100}%" %></p>
