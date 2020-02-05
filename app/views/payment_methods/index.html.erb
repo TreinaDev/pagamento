@@ -1,0 +1,7 @@
+<h1>Meios de pagamento</h1>
+
+<% if @payment_methods.any? %>
+  <h2>Não há meios de pagamento cadastrados</h2>
+<% end %>
+
+<%= link_to 'Cadastrar novo meio de pagamento', new_payment_method_path %>
