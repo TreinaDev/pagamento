@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :client_profile do
-    name { 'MyString' }
+    name { 'Fulano de Tal' }
   end
 end

@@ -28,9 +28,9 @@ feature 'Admin register payment methods' do
     click_on 'Cadastrar novo meio de pagamento'
     click_on 'Salvar'
 
-    expect(page).to have_content("Name can't be blank")
-    expect(page).to have_content("Tax can't be blank")
-    expect(page).to have_content("Image can't be blank")
+    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content('Taxa não pode ficar em branco')
+    expect(page).to have_content('Imagem da bandeira não pode ficar em branco')
     expect(page).to have_content('Cadastrar novo meio de pagamento')
   end
 end
