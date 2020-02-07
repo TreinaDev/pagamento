@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      payment_method: 'Metodo de Pagamento'
+    attributes:
+      payment_method:
+        name: 'Nome'
+        tax: 'Taxa'
+        image: 'Imagem da bandeira'

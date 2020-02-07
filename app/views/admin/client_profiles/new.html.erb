@@ -1,0 +1,16 @@
+
+<%= form_for @client_profile, url: admin_client_profiles_path do |f| %>
+  <%= f.label :cnpj %>
+  <%= f.text_field :cnpj %>
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+  <%= f.label :manager %>
+  <%= f.text_field :manager %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.submit 'Criar' %>
+<% end %>
