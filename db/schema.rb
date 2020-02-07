@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_222427) do
+ActiveRecord::Schema.define(version: 2020_02_07_005806) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +79,20 @@ ActiveRecord::Schema.define(version: 2020_02_05_222427) do
     t.float "tax"
   end
 
+  create_table "payment_settings", force: :cascade do |t|
+    t.integer "client_profile_id", null: false
+    t.integer "payment_method_id", null: false
+    t.decimal "discount"
+    t.decimal "interest_rate"
+    t.integer "installments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_profile_id"], name: "index_payment_settings_on_client_profile_id"
+    t.index ["payment_method_id"], name: "index_payment_settings_on_payment_method_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "client_profiles", "clients"
+  add_foreign_key "payment_settings", "client_profiles"
+  add_foreign_key "payment_settings", "payment_methods"
 end

@@ -1,0 +1,7 @@
+<h1>Configure sua forma de pagamento</h1>
+
+<%= form_with model: @payment_setting, local: true do |f| %>
+  <%= f.label :name, 'Tipo de pagamento'%>
+  <%= f.collection_select (:name, @payment_methods, :id, :name)%>
+
+<% end %>
