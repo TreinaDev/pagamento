@@ -1,4 +1,4 @@
-Factory.define do
+FactoryBot.define do
   factory :payment_method do
     image_path = Rails.root.join('spec/support/boleto.png')
     name { 'Cartão de Debito' }
