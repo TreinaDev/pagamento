@@ -13,16 +13,19 @@ FactoryBot.define do
       image_path = Rails.root.join('spec/support/visa.png')
       image { fixture_file_upload(image_path, 'image/png') }
     end
+
     trait :digital_transfer do
       name { 'Paypal' }
       image_path = Rails.root.join('spec/support/paypal.png')
       image { fixture_file_upload(image_path, 'image/png') }
     end
+
     trait :boleto do
       name { 'Boleto' }
       image_path = Rails.root.join('spec/support/boleto.png')
       image { fixture_file_upload(image_path, 'image/png') }
     end
+    
     trait :credit do
       name { 'Cartão de Crédito' }
       image_path = Rails.root.join('spec/support/mastercard.png')
