@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      payment_setting: 'Configuração de Pagamento'
+    attributes:
+      payment_setting:
+        discount: 'Desconto'
+        interest_rate: 'Taxa de Juros'
+        installments: 'Parcelas'

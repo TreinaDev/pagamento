@@ -1,0 +1,11 @@
+<h1><%= "Configurações de #{@payment_setting.payment_method.name}" %></h1>
+
+<div>
+  <%= image_tag(@payment_setting.payment_method.image, size: '25x25') %>
+</div>
+
+<p><%= "Número de parcelas: #{@payment_setting.installments}x" %></p>
+<p><%= "Juros: #{@payment_setting.interest_rate}%" %></p>
+<p><%= "Desconto: #{@payment_setting.discount}%" %></p>
+
+
