@@ -1,5 +1,7 @@
 class Admin
   class PaymentCompaniesController < ApplicationController
+    before_action :authenticate_admin!, only: %i[new create]
+
     def new
       @payment_company = PaymentCompany.new
       @payment_methods = PaymentMethod.all
