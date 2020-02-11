@@ -1,7 +1,9 @@
 <h1><%= "Configurações de #{@payment_setting.payment_method.name}" %></h1>
 
 <div>
-  <%= image_tag(@payment_setting.payment_method.image, size: '25x25') %>
+  <% @payment_setting.payment_method.payment_companies.each do |image| %>
+  <%= image_tag(image.image, size: '25x25') %>
+  <% end %>
 </div>
 
 <p><%= "Número de parcelas: #{@payment_setting.installments}x" %></p>

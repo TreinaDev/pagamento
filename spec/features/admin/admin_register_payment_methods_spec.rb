@@ -10,13 +10,12 @@ feature 'Admin register payment methods' do
     click_on 'Cadastrar novo meio de pagamento'
     fill_in 'Nome', with: 'Cartão de crédito'
     fill_in 'Taxa', with: 0.05
-    attach_file 'Image', Rails.root.join('spec/support/mastercard.png')
+
     click_on 'Salvar'
 
     expect(page).to have_content('Meio de pagamento cadastrado com sucesso!')
     expect(page).to have_content('Meio de pagamento: Cartão de crédito')
     expect(page).to have_content('Taxa: 5.0%')
-    expect(page).to have_css("img[src*='mastercard.png']")
   end
 
   scenario 'and param is missing' do
@@ -30,7 +29,6 @@ feature 'Admin register payment methods' do
 
     expect(page).to have_content('Nome não pode ficar em branco')
     expect(page).to have_content('Taxa não pode ficar em branco')
-    expect(page).to have_content('Imagem da bandeira não pode ficar em branco')
     expect(page).to have_content('Cadastrar novo meio de pagamento')
   end
 end

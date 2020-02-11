@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      payment_company: 'Empresa de Pagamento'
+    attributes:
+      payment_company:
+        name: 'Bandeira/Banco/Serviço'
+        image: 'Imagem'
+        payment_method_id: 'Metodo de pagamento'
+  payment_company:
+    show:
+      title: 'Empresas de Pagamento'
+    create:
+      success: 'Bandeira/Banco/Serviço cadastrado com sucesso!'

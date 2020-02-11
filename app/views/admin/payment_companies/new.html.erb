@@ -1,0 +1,17 @@
+<% if @payment_company.errors.full_messages.any? %>
+  <ul>
+    <% @payment_company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @payment_company, url: admin_payment_companies_path do |form| %>
+  <%= form.label :name%>
+  <%= form.text_field :name %>
+  <%= form.label :image %>
+  <%= form.file_field :image%>
+  <%= form.label :payment_method_id%>
+  <%= form.collection_select(:payment_method_id, @payment_methods, :id, :name) %>
+  <%= form.submit 'Salvar' %>
+<% end %>
