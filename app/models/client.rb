@@ -5,4 +5,5 @@ class Client < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :client_profile, dependent: :destroy
+  has_many :orders
 end
