@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :payment_settings, only: %i[index]
+      get 'client/:token/transaction_simulation', to: 'transaction_simulation#simulation'
     end
   end
 
