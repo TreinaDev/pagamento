@@ -8,5 +8,9 @@
   <h2>Não há meios de pagamento cadastrados</h2>
 <% end %>
 
+<% if current_client %>
+  <%= link_to 'Configure seus Meios de Pagamento', new_payment_setting_path %>
+<% end %>
+
 <%= link_to 'Cadastrar novo meio de pagamento', new_payment_method_path %>
 <%= link_to 'Voltar', :back %>

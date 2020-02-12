@@ -87,7 +87,21 @@ ActiveRecord::Schema.define(version: 2020_02_10_234421) do
     t.float "tax"
   end
 
+  create_table "payment_settings", force: :cascade do |t|
+    t.integer "client_profile_id", null: false
+    t.integer "payment_method_id", null: false
+    t.decimal "discount"
+    t.decimal "interest_rate"
+    t.integer "installments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_profile_id"], name: "index_payment_settings_on_client_profile_id"
+    t.index ["payment_method_id"], name: "index_payment_settings_on_payment_method_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "client_profiles", "clients"
   add_foreign_key "payment_companies", "payment_methods"
+  add_foreign_key "payment_settings", "client_profiles"
+  add_foreign_key "payment_settings", "payment_methods"
 end

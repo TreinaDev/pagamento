@@ -1,0 +1,25 @@
+<h1>Configure sua forma de pagamento</h1>
+
+<% if @payment_setting.errors.full_messages.any? %>
+  <ul>
+    <% @payment_setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @payment_setting, local: true do |f| %>
+  <%= f.label :payment_method_id, 'Tipo de pagamento' %>
+  <%= f.collection_select(:payment_method_id, @payment_methods, :id, :name)%>
+
+  <%= f.label :installments, 'Número de parcelas' %>
+  <%= f.number_field :installments %>
+
+  <%= f.label :interest_rate, 'Juros' %>
+  <%= f.number_field :interest_rate%>
+
+  <%= f.label :discount, 'Desconto' %>
+  <%= f.number_field :discount%>
+
+  <%= f.submit 'Salvar' %>
+<% end %>
