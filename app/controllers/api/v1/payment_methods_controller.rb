@@ -1,3 +1,3 @@
-class Api::V1::PaymentMethods < Api::V1::ApiController
+class Api::V1::PaymentMethodsController < Api::V1::ApiController
 
 end

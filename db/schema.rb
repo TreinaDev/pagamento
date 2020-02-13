@@ -76,11 +76,11 @@ ActiveRecord::Schema.define(version: 2020_02_12_010558) do
     t.string "client_token"
     t.integer "order_id"
     t.decimal "order_value"
-    t.integer "client_id", null: false
+    t.integer "client_profile_id", null: false
     t.integer "payment_method_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["client_profile_id"], name: "index_orders_on_client_profile_id"
     t.index ["payment_method_id"], name: "index_orders_on_payment_method_id"
   end
 
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_010558) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "client_profiles", "clients"
-  add_foreign_key "orders", "clients"
+  add_foreign_key "orders", "client_profiles"
   add_foreign_key "orders", "payment_methods"
   add_foreign_key "payment_companies", "payment_methods"
   add_foreign_key "payment_settings", "client_profiles"

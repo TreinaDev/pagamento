@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-  belongs_to :clients
-  belongs_to :payment_methods
+  belongs_to :client_profile
+  belongs_to :payment_method
 end
