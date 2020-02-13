@@ -4,6 +4,6 @@ FactoryBot.define do
     payment_method { nil }
     discount { '0.1' }
     interest_rate { '0.5' }
-    installment { 1 }
+    installments { 1 }
   end
 end
