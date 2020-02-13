@@ -10,7 +10,9 @@
   <%= f.text_field :address %>
   <%= f.label :phone %>
   <%= f.text_field :phone %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.fields_for :client do |client_form| %>
+    <%= client_form.label :email%>
+    <%= client_form.text_field :email%>
+  <% end %>
   <%= f.submit 'Criar' %>
 <% end %>
