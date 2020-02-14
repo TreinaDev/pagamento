@@ -1,4 +1,11 @@
+
+[![Build
+Status](https://travis-ci.com/TreinaDev/pagamento.svg?branch=master)](https://travis-ci.com/TreinaDev/pagamento)
+
+
 # README
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
