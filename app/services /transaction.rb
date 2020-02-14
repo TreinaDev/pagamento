@@ -1,5 +1,6 @@
 class Transaction
-  attr_accessor :name, :value, :one_shot, :installments, :total_value, :installment_value
+  attr_accessor :name, :value, :one_shot, :installments, :total_value,
+                :installment_value
 
   def initialize(name, value, installments)
     @name = name
@@ -22,7 +23,6 @@ class Transaction
   end
 
   def calculate_installments
-    @installment_value = @total_value/@installments
+    @installment_value = @total_value / @installments
   end
-
 end
