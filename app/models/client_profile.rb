@@ -4,4 +4,5 @@ class ClientProfile < ApplicationRecord
   has_many :payment_settings, dependent: :destroy
   has_many :payment_methods, through: :payment_settings
   accepts_nested_attributes_for :client
+  has_many :orders, dependent: :destroy
 end
