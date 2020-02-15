@@ -6,6 +6,7 @@ class ClientProfile < ApplicationRecord
 
   has_secure_token :auth_token
   accepts_nested_attributes_for :client
+
   validates_associated :client
 
   validates :cnpj, :company_name, presence: true
