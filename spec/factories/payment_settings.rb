@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :payment_setting do
     client_profile { nil }
     payment_method { nil }
-    discount { '9.99' }
-    interest_rate { '9.99' }
-    installment { 1 }
+    discount { '0.1' }
+    interest_rate { '0.5' }
+    installments { 1 }
   end
 end

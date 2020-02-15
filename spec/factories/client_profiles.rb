@@ -5,7 +5,6 @@ FactoryBot.define do
     manager { 'Felipe' }
     address { 'Rua asdf' }
     phone { '11 99999-9999' }
-    email { 'marcelle.sa@teste.com' }
     auth_token { 'QwDASFEQFDFAEFEFE' }
   end
 end
