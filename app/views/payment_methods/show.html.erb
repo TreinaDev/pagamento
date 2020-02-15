@@ -1,6 +1,8 @@
-<%= %>
+<h1>Meio de pagamento: <%= @payment_method.name%></h1>
+<p>Taxa: <%= @payment_method.tax*100 %>%</p>
 
-<%= notice %>
-<h1>Meio de pagamento: <%= @payment_method.name%> </h1>
+<% if admin_signed_in? %>
+  <%= link_to 'Editar', edit_payment_method_path(@payment_method) %>
+<% end %>
 
-<p><%= "Taxa: #{@payment_method.tax*100}%" %></p>
+<%= link_to 'Voltar', :back %>
