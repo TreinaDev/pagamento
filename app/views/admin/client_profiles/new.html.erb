@@ -1,4 +1,26 @@
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to t('.clients'), admin_client_profiles_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('.new_client'), new_admin_client_profile_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('.payment_methods'), payment_methods_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Logout', destroy_admin_session_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h3><%= t('.title') %></h3>
+
 <%= form_for @client_profile, url: admin_client_profiles_path do |f| %>
   <%= f.label :cnpj %>
   <%= f.text_field :cnpj %>
@@ -14,5 +36,5 @@
     <%= client_form.label :email%>
     <%= client_form.text_field :email%>
   <% end %>
-  <%= f.submit 'Criar' %>
+  <%= f.submit t('.save') %>
 <% end %>

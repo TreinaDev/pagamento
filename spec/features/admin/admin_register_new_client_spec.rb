@@ -12,16 +12,17 @@ feature 'Admin register a new client' do
     fill_in 'Representante', with: 'Luizinho'
     fill_in 'Endereço', with: 'Av. Teste, 1000'
     fill_in 'Telefone', with: '(11)2222-9999'
-    fill_in 'Email', with: 'client@teste.com'
+    fill_in 'Email', with: 'cliente@teste.com'
 
-    click_on 'Criar'
+    click_on 'Salvar'
 
+    expect(page).to have_content('Perfil do Cliente')
     expect(page).to have_content('78.991.081/0001-26')
     expect(page).to have_content('Campos Code')
     expect(page).to have_content('Luizinho')
     expect(page).to have_content('Av. Teste, 1000')
     expect(page).to have_content('(11)2222-9999')
-    expect(page).to have_content('client@teste.com')
+    expect(page).to have_content('cliente@teste.com')
 
     client_profile = ClientProfile.last
 

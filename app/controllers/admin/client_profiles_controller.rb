@@ -1,5 +1,10 @@
 class Admin
   class ClientProfilesController < ApplicationController
+    
+    def index
+      @client_profiles = ClientProfile.all
+    end
+    
     def new
       @client_profile = ClientProfile.new
       @client_profile.build_client

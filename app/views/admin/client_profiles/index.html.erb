@@ -1,0 +1,12 @@
+<h3><%= t('.clients', ) %></h3>
+
+<% if @client_profiles.empty? %>
+  <p> <%= t('.message') %><p>
+<% else %>
+  <%= @client_profiles.each do |client| %>
+  <%= client.company_name%>
+  <%= client.cnpj%>
+  <%= client.phone%>
+  <%= client.client.email%>
+  <% end %>
+<% end %>

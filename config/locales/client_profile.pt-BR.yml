@@ -12,10 +12,15 @@ pt-BR:
         email: 'Email'
         password: 'Senha'
         auth_token: 'Token'
-  client_profiles:
-    show:
-      title: 'Perfil do Cliente'
-    create:
-      success: 'Cliente criado com sucesso'
-
-        
+  admin:
+    client_profiles:
+      show:
+        title: 'Perfil do Cliente'
+      create:
+        success: 'Cliente criado com sucesso'
+      new:
+        title: 'Novo Cliente'
+        save: 'Salvar'
+      index:
+        clients: 'Clientes'
+        message: 'Não há clientes cadastrados'        
