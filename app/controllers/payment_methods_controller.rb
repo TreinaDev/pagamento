@@ -1,6 +1,6 @@
 class PaymentMethodsController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create edit update]
-  
+
   def index
     @payment_methods = PaymentMethod.all
   end

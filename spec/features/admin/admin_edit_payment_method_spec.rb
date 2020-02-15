@@ -40,7 +40,7 @@ feature 'Admin edit payment method' do
     client = create(:client)
 
     login_as(client, scope: :client)
-    
+
     expect(page).not_to have_link('Editar')
   end
 end
