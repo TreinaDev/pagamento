@@ -4,5 +4,5 @@
 <p> <%= ClientProfile.human_attribute_name(:manager) %>: <%= @client_profile.manager %></p>
 <p> <%= ClientProfile.human_attribute_name(:address) %>: <%= @client_profile.address %></p>
 <p> <%= ClientProfile.human_attribute_name(:phone) %>: <%= @client_profile.phone %></p>
-<p> <%= ClientProfile.human_attribute_name(:email) %>: <%= @client_profile.email %></p>
+<p> <%= ClientProfile.human_attribute_name(:email) %>: <%= @client_profile.client.email %></p>
 <p> <%= ClientProfile.human_attribute_name(:auth_token) %>: <%= @client_profile.auth_token %></p>
