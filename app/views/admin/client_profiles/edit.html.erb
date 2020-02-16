@@ -1,4 +1,8 @@
-
+<% if @client_profile.errors.any?%>
+  <% @client_profile.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
 
 <h3><%= t('.title') %></h3>
 

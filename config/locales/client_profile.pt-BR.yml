@@ -18,6 +18,7 @@ pt-BR:
         title: 'Perfil do Cliente'
       create:
         success: 'Cliente criado com sucesso'
+        warning: 'Você deve corrigir todos os erros para prosseguir'
       new:
         title: 'Novo Cliente'
         save: 'Salvar'
@@ -29,6 +30,7 @@ pt-BR:
         save: 'Salvar'
       update:
         success: 'Perfil do cliente atualizado com sucesso'
-      
+        warning: 'Você deve corrigir todos os erros para prosseguir'
+
 
   

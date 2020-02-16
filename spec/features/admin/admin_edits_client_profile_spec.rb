@@ -14,8 +14,6 @@ feature 'admin edits client profile' do
 
     visit admin_client_profiles_path
     click_on client_profile1.company_name
-    # visit edit_admin_client_profile_path(client1)
-
     fill_in 'CNPJ', with: '78.991.081/0001-26'
     fill_in 'Razão Social', with: 'Campos Code'
     fill_in 'Representante', with: 'Luizinho'
@@ -29,12 +27,39 @@ feature 'admin edits client profile' do
     expect(page).to have_content('Luizinho')
     expect(page).to have_content('Av. Teste, 1000')
     expect(page).to have_content('(11)2222-9999')
-    # byebug
     expect(page).to have_content('Perfil do cliente atualizado com sucesso')
 
     client_profile = ClientProfile.last
 
     expect(client_profile.auth_token).not_to eq(nil)
     expect(client_profile.auth_token).to eq('123456')
+  end
+
+  scenario 'fields cant be blanck' do
+    client1 = Client.create!(email: 'client1@test.com', password: '123456')
+    client_profile1 = ClientProfile.create!(
+      company_name: 'A', cnpj: '111111111', manager: 'Felipe',
+      address: 'Rua A, 1234', phone: '11-2222222',
+      auth_token: '123456', client: client1
+    )
+
+    admin = create(:admin)
+    login_as(admin, scope: :admin)
+
+    visit admin_client_profiles_path
+    click_on client_profile1.company_name
+    fill_in 'CNPJ', with: ''
+    fill_in 'Razão Social', with: '' 
+    fill_in 'Representante', with: ''
+    fill_in 'Endereço', with: ''
+    fill_in 'Telefone', with: ''
+    click_on 'Salvar'
+
+    expect(page).to have_content('CNPJ não pode ficar em branco')
+    expect(page).to have_content('Razão Social não pode ficar em branco')
+    expect(page).to have_content('Representante não pode ficar em branco')
+    expect(page).to have_content('Endereço não pode ficar em branco')
+    expect(page).to have_content('Telefone não pode ficar em branco')
+    expect(page).to have_content('Você deve corrigir todos os erros para prosseguir')
   end
 end
