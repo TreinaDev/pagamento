@@ -27,7 +27,7 @@ Style/FrozenStringLiteralComment:
  Enabled: false
 
 Metrics/BlockLength:
- ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let', 'define']
+ ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let', 'define', 'it']
 
 Layout/LineLength:
   Max: 80
