@@ -11,7 +11,14 @@ Rails.application.routes.draw do
     resources :dashboard, only: %i[index]
   end
 
-  resources :payment_methods, only: %i[index show new create]
+  namespace :api do
+    namespace :v1 do
+      get 'client/:token/transaction_simulation',
+          to: 'transaction_simulation#simulation'
+    end
+  end
+
+  resources :payment_methods, only: %i[index show new create edit update]
   resources :payment_settings, only: %i[show new create]
 
   root to: 'home#index'

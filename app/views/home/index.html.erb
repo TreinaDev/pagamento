@@ -1,1 +1,7 @@
-<%= link_to 'Meios de pagamento', payment_methods_path%>
+<h1><%= t('.company_name') %> </h1>
+
+<% if current_admin %>
+  <%= render partial: 'admin_navbar' %>
+<% else %>
+  <%= render partial: 'user_navbar' %>
+<% end %>
