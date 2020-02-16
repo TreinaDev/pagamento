@@ -1,0 +1,5 @@
+<% if current_admin %>
+  <%= render partial: 'shared/admin_navbar' %>
+<% else %>
+  <%= render partial: 'shared/user_navbar' %>
+<% end %>

@@ -1,6 +1,5 @@
 pt-BR:
-  home:
-    index:
+  shared:
     user_navbar:
       company_name: Nome da companhia aqui
       about_us: Quem Somos
