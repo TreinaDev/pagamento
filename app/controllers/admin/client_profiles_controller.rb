@@ -1,10 +1,9 @@
 class Admin
   class ClientProfilesController < ApplicationController
-    
     def index
       @client_profiles = ClientProfile.all
     end
-    
+
     def new
       @client_profile = ClientProfile.new
       @client_profile.build_client
@@ -25,8 +24,9 @@ class Admin
 
     def update
       @client_profile = ClientProfile.find(params[:id])
-      if @client_profile.update(params.require(:client_profile).permit(:name, :cnpj, :company_name,
-                                :manager, :address, :phone))
+      if @client_profile.update(params.require(:client_profile)
+                    .permit(:name, :cnpj, :company_name, :manager,
+                            :address, :phone))
         flash[:success] = t('.success')
         redirect_to admin_client_profile_path(@client_profile)
       else
