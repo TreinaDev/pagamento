@@ -1,10 +1,31 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to t('.clients'), admin_client_profiles_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('.new_client'), new_admin_client_profile_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('.payment_methods'), payment_methods_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Logout', destroy_admin_session_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <h3><%= t('.clients', ) %></h3>
 
 <% if @client_profiles.empty? %>
   <p> <%= t('.message') %><p>
 <% else %>
   <%= @client_profiles.each do |client| %>
-  <%= client.company_name%>
+  <%= link_to client.company_name, edit_admin_client_profile_path(client) %>
   <%= client.cnpj%>
   <%= client.phone%>
   <%= client.client.email%>

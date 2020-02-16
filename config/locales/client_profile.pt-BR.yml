@@ -23,4 +23,12 @@ pt-BR:
         save: 'Salvar'
       index:
         clients: 'Clientes'
-        message: 'Não há clientes cadastrados'        
+        message: 'Não há clientes cadastrados' 
+      edit:
+        title: 'Editar Cliente'
+        save: 'Salvar'
+      update:
+        success: 'Perfil do cliente atualizado com sucesso'
+      
+
+  

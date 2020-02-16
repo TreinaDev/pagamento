@@ -19,6 +19,21 @@ class Admin
                   notice: t('.success')
     end
 
+    def edit
+      @client_profile = ClientProfile.find(params[:id])
+    end
+
+    def update
+      @client_profile = ClientProfile.find(params[:id])
+      if @client_profile.update(params.require(:client_profile).permit(:name, :cnpj, :company_name,
+                                :manager, :address, :phone))
+        redirect_to admin_client_profile_path(@client_profile),
+                    notice: t('.success')
+      else
+        render edit_admin_client_profile_path(@client_profile)
+      end
+    end
+
     def show
       @client_profile = ClientProfile.find(params[:id])
     end
