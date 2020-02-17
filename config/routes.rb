@@ -17,7 +17,7 @@ Rails.application.routes.draw do
           to: 'transaction_simulation#simulation'
 
       post 'client/:client_token/order',
-          to: 'orders#create'
+           to: 'orders#create'
     end
   end
 
