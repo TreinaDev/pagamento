@@ -8,14 +8,9 @@ describe 'Order create via API POST' do
       client_profile = create(:client_profile, client: client)
 
       expect do
-        post api_v1_orders_path, params: { client_token:
-                                                      client_profile.auth_token,
-                                           order_value: 500.00,
-                                           order_id: 24,
-                                           payment_method_id:
-                                                      payment_method.id,
-                                           client_profile_id:
-                                                      client_profile.id }
+        post "/api/v1/client/#{client_profile.auth_token}/order?"\
+             'order_value=500&order_id=24&payment_method_id=1'
+
       end.to change(Order, :count).by(1)
 
       expect(response).to have_http_status(:created)

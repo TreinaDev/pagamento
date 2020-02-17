@@ -16,7 +16,8 @@ Rails.application.routes.draw do
       get 'client/:token/transaction_simulation',
           to: 'transaction_simulation#simulation'
 
-      resources :orders, only: %i[create]
+      post 'client/:client_token/order',
+          to: 'orders#create'
     end
   end
 
