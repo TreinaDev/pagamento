@@ -17,5 +17,6 @@ pt-BR:
       title: 'Perfil do Cliente'
     create:
       success: 'Cliente criado com sucesso'
-
+    update: 
+      success: 'Perfil alterado com sucesso'
         

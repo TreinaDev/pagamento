@@ -56,4 +56,10 @@ feature 'Client access dashboard' do
     expect(current_path).to eq(root_path)
     expect(page).to have_link('Login')
   end
+
+  scenario 'and try to access dashboard without a login client' do
+    visit client_dashboard_index_path
+
+    expect(current_path).to eq(client_session_path)
+  end
 end
