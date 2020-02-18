@@ -1,8 +1,51 @@
-<h1><%= t('.title') %></h1>
-<p> <%= ClientProfile.human_attribute_name(:cnpj) %><%= @client_profile.cnpj%></p>
-<p> <%= ClientProfile.human_attribute_name(:company_name) %>: <%= @client_profile.company_name %></p>
-<p> <%= ClientProfile.human_attribute_name(:manager) %>: <%= @client_profile.manager %></p>
-<p> <%= ClientProfile.human_attribute_name(:address) %>: <%= @client_profile.address %></p>
-<p> <%= ClientProfile.human_attribute_name(:phone) %>: <%= @client_profile.phone %></p>
-<p> <%= ClientProfile.human_attribute_name(:email) %>: <%= @client_profile.client.email %></p>
-<p> <%= ClientProfile.human_attribute_name(:auth_token) %>: <%= @client_profile.auth_token %></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to t('.clients'), admin_client_profiles_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('.new_client'), new_admin_client_profile_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('.payment_methods'), payment_methods_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Logout', destroy_admin_session_path, class: "nav-link" %> <span class="sr-only"></span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h3><%= t('.title') %></h3>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><%= ClientProfile.human_attribute_name(:company_name) %>:</th>
+      <th scope="col"><%= ClientProfile.human_attribute_name(:cnpj) %>:</th>
+      <th scope="col"><%= ClientProfile.human_attribute_name(:manager) %>:</th>
+      <th scope="col"><%= ClientProfile.human_attribute_name(:address) %>:</th>
+      <th scope="col"> <%= ClientProfile.human_attribute_name(:phone) %>:</th>
+      <th scope="col"><%= ClientProfile.human_attribute_name(:email) %>:</th>
+      <th scope="col"><%= ClientProfile.human_attribute_name(:auth_token) %>:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td> <%= @client_profile.company_name %></td>
+      <td><%= @client_profile.cnpj%></td>
+      <td> <%= @client_profile.manager %></td>
+      <td><%= @client_profile.address %></td>
+      <td><%= @client_profile.phone %></td>
+      <td><%= @client_profile.client.email %></td>
+      <td><%= @client_profile.auth_token %></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+]
