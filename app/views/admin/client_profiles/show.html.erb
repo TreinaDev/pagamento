@@ -1,8 +1,19 @@
-<h1><%= t('.title') %></h1>
-<p> <%= ClientProfile.human_attribute_name(:cnpj) %><%= @client_profile.cnpj%></p>
-<p> <%= ClientProfile.human_attribute_name(:company_name) %>: <%= @client_profile.company_name %></p>
-<p> <%= ClientProfile.human_attribute_name(:manager) %>: <%= @client_profile.manager %></p>
-<p> <%= ClientProfile.human_attribute_name(:address) %>: <%= @client_profile.address %></p>
-<p> <%= ClientProfile.human_attribute_name(:phone) %>: <%= @client_profile.phone %></p>
-<p> <%= ClientProfile.human_attribute_name(:email) %>: <%= @client_profile.client.email %></p>
-<p> <%= ClientProfile.human_attribute_name(:auth_token) %>: <%= @client_profile.auth_token %></p>
+<%= render partial: 'shared/navbar' %>
+<br>
+<br>
+<br>
+<div class="container">
+  <h2><%= t('.title') %></h2>
+  <h3><%= "#{ClientProfile.human_attribute_name(:company_name)}: #{@client_profile.company_name}" %></h3>
+
+  <ul>
+    <li><%= "#{ClientProfile.human_attribute_name(:cnpj)}: #{@client_profile.cnpj}" %></li>
+    <li><%= "#{ClientProfile.human_attribute_name(:manager)}: #{@client_profile.manager}" %></li>
+    <li><%= "#{ClientProfile.human_attribute_name(:address)}: #{@client_profile.address}" %></li>
+    <li><%= "#{ClientProfile.human_attribute_name(:phone)}: #{@client_profile.phone}" %></li>
+    <li><%= "#{ClientProfile.human_attribute_name(:auth_token)}: #{@client_profile.auth_token}" %></li>
+    <li><%= "#{ClientProfile.human_attribute_name(:email)}: #{@client_profile.client.email}" %></li>
+  </ul>
+  <%= link_to 'Editar', edit_admin_client_profile_path(@client_profile), class: 'btn btn-info' %>
+  <%= link_to 'Deletar', admin_client_profile_path(@client_profile), class: 'btn btn-danger' %>
+</div>

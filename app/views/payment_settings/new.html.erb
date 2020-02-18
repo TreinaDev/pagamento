@@ -1,25 +1,39 @@
 <h1>Configure sua forma de pagamento</h1>
 
+<div class="container">
 <% if @payment_setting.errors.full_messages.any? %>
+  <p>Foram verificados os seguintes erros:</p>
   <ul>
     <% @payment_setting.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class="text-danger"><%= message %></li>
     <% end %>
   </ul>
 <% end %>
+</div>
 
+<div class="container">
 <%= form_with model: @payment_setting, local: true do |f| %>
-  <%= f.label :payment_method_id, 'Tipo de pagamento' %>
-  <%= f.collection_select(:payment_method_id, @payment_methods, :id, :name)%>
+  <div class="form-group">
+    <%= f.label :payment_method_id, 'Tipo de pagamento' %>
+    <%= f.collection_select(:payment_method_id, @payment_methods, :id, :name, options={}, html_options = {class: "form-control col-3"})%>
+  </div>
 
-  <%= f.label :installments, 'Número de parcelas' %>
-  <%= f.number_field :installments %>
+  <div class="form-group">
+    <%= f.label :installments, 'Número de parcelas' %>
+    <%= f.number_field :installments, class: "form-control col-3" %>
+  </div>
 
-  <%= f.label :interest_rate, 'Juros' %>
-  <%= f.number_field :interest_rate%>
+  <div class="form-group">
+    <%= f.label :interest_rate, 'Juros' %>
+    <%= f.number_field :interest_rate, class: "form-control col-3" %>
+  </div>
 
-  <%= f.label :discount, 'Desconto' %>
-  <%= f.number_field :discount%>
+  <div class="form-group">
+    <%= f.label :discount, 'Desconto' %>
+    <%= f.number_field :discount, class: "form-control col-3"%>
+  </div>
 
-  <%= f.submit 'Salvar' %>
+  <small class="form-text text-muted">*Todos os campos são obrigatórios.</small>
+  <%= f.submit 'Salvar',class: "btn btn-primary" %>
 <% end %>
+</div>

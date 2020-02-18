@@ -3,10 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -15,3 +15,15 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import 'bootstrap'
+
+import '../stylesheet/now-ui-kit.scss'
+
+import '../js/core/bootstrap.min'
+import '../js/core/jquery.min'
+import '../js/core/popper.min'
+import '../js/plugins/bootstrap-datepicker'
+import '../js/plugins/bootstrap-switch'
+import '../js/plugins/nouislider.min'
+import '../js/now-ui-kit'

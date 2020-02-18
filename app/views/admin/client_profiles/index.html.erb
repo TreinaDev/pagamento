@@ -1,0 +1,29 @@
+<%= render partial: 'shared/navbar' %>
+  <h3><%= t('.clients') %></h3>
+
+  <% if @client_profiles.empty? %>
+    <p> <%= t('.message') %> <p>
+  <% else %>
+    <% @client_profiles.each do |client| %>
+      <table class="table navbar-expand-lg">
+        <thead>
+        <tr>
+          <th class="text-center"><%= ClientProfile.human_attribute_name(:company_name) %></th>
+          <th><%= ClientProfile.human_attribute_name(:cnpj) %></th>
+          <th> <%= ClientProfile.human_attribute_name(:phone) %></th>
+          <th><%= ClientProfile.human_attribute_name(:email) %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="text-center"><%= link_to client.company_name, admin_client_profile_path(client) %></td>
+          <td><%= client.cnpj%></td>
+          <td><%= client.phone%></td>
+          <td><%= client.client.email%></td>
+        </tr>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+
