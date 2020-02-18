@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Order create via API POST' do
   context 'create' do
     it 'successfully' do
-      payment_method = create(:payment_method, :debit)
+      create(:payment_method, :debit)
       client = create(:client)
       client_profile = create(:client_profile, client: client)
 
@@ -14,10 +14,11 @@ describe 'Order create via API POST' do
       end.to change(Order, :count).by(1)
 
       json = JSON.parse(response.body, symbolize_names: true)
+
+      puts json
       expect(response).to have_http_status(:created)
       expect(json[:message]).to eq('Pagamento efetivado com sucesso')
-      expect(json[:client][:company_name]).to eq(client_profile.company_name)
-      expect(json[:payment_method][:name]).to eq(payment_method.name)
+      expect(json[:order][:order_id]).to eq(24)
     end
 
     it 'and must dont have a registered client' do
@@ -39,7 +40,7 @@ describe 'Order create via API POST' do
              'order_id=24&payment_method_id=1'
 
       json = JSON.parse(response.body, symbolize_names: true)
-      puts json
+
       expect(response).to have_http_status(:precondition_failed)
       expect(json[:message]).to include('Valor do Pedido não pode ficar em '\
                                         'branco')

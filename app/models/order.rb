@@ -4,4 +4,8 @@ class Order < ApplicationRecord
             presence: true
   belongs_to :client_profile
   belongs_to :payment_method
+
+  def calculate_client_value
+    self.client_value = order_value - (order_value * payment_method.tax)
+  end
 end
