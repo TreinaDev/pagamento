@@ -116,7 +116,7 @@ describe 'API sends payment methods' do
     get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
-
+    
     expect(response).to have_http_status(404)
     expect(json[:message]).to include('Não há meio de pagamentos cadastrados')
   end
@@ -132,6 +132,7 @@ describe 'API sends payment methods' do
     get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
+    pp json 
     expect(response).to have_http_status(200)
     expect(json).to eq ({:payment_methods=>[]})
   end

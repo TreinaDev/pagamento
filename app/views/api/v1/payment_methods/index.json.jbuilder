@@ -6,7 +6,6 @@ json.set! :payment_methods do
       json.array! payment_method.payment_companies do |company|
         json.name company.name
         json.image url_for(company.image)
-        json.message 'nao ha companhias registradas'
       end
     end
   end
