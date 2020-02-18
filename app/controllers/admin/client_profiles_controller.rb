@@ -1,5 +1,7 @@
 class Admin
   class ClientProfilesController < ApplicationController
+    before_action :authenticate_admin!, only: %i[new create]
+
     def index
       @client_profiles = ClientProfile.all
     end
