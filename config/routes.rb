@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'client/:token/transaction_simulation',
           to: 'transaction_simulation#simulation'
       get 'client/:token/payment_methods',
-          to: 'payment_methods#index' 
+          to: 'payment_methods#index'
     end
   end
 

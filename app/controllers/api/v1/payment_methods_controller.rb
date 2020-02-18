@@ -14,10 +14,10 @@ module Api
       def verify_payment_settings
         @client = ClientProfile.find_by(auth_token: params[:token])
         @payment_settings = @client.payment_settings
-        if @payment_settings.empty?
-          render json: { message: 'Não há meio de pagamentos cadastrados' },
-                 status: :not_found
-        end
+        return unless @payment_settings.empty?
+
+        render json: { message: 'Não há meio de pagamentos cadastrados' },
+               status: :not_found
       end
     end
   end
