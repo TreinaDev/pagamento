@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_200029) do
+ActiveRecord::Schema.define(version: 2020_02_18_120422) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +79,9 @@ ActiveRecord::Schema.define(version: 2020_02_13_200029) do
     t.integer "payment_method_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "client_value"
+    t.integer "order_installments"
+    t.decimal "order_installments_value"
     t.index ["client_profile_id"], name: "index_orders_on_client_profile_id"
     t.index ["payment_method_id"], name: "index_orders_on_payment_method_id"
   end
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_200029) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "tax"
+    t.decimal "tax"
   end
 
   create_table "payment_settings", force: :cascade do |t|
