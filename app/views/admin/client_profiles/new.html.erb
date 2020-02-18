@@ -1,10 +1,10 @@
-<% if @client_profile.errors.full_messages.any? %>
-  <ul>
-    <% @client_profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-  </ul>
+<% if @client_profile.errors.any?%>
+  <% @client_profile.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
 <% end %>
+
+<h3><%= t('.title') %></h3>
 
 <%= form_for @client_profile, url: admin_client_profiles_path do |f| %>
   <%= f.label :cnpj %>
@@ -21,5 +21,5 @@
     <%= client_form.label :email%>
     <%= client_form.text_field :email%>
   <% end %>
-  <%= f.submit 'Criar' %>
+  <%= f.submit t('.save') %>
 <% end %>
