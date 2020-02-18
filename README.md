@@ -102,7 +102,7 @@ A efetivação e confirmação do pagamento é feita através da chamada da rota
 
 :token = Corresponde ao token gerado na criação da conta do cliente 
 
-order_value = Corresponde ao valor total a ser papo pelo consumidor final
+order_value = Corresponde ao valor total a ser pago pelo consumidor final
 
 order_id = Corresponde ao indentificador do pedido na plataforma de vendas
 
