@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :payment_method do
     name { 'Cartão de Debito' }
-    tax { 0.5 }
+    tax { 0.05 }
 
     trait :debit do
       name { 'Débito em Conta' }

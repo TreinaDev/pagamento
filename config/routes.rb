@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'client/:token/transaction_simulation',
           to: 'transaction_simulation#simulation'
+
+      post 'client/:client_token/order',
+           to: 'orders#create'
       get 'client/:token/payment_methods',
           to: 'payment_methods#index'
     end
