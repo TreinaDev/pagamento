@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :client do
     resources :dashboard, only: %i[index]
+    resources :client_profiles, only: %i[show edit update]
   end
 
   namespace :api do
