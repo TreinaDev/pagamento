@@ -1,8 +1,9 @@
 class Transaction
-  attr_accessor :name, :value, :one_shot, :installments, :total_value,
+  attr_accessor :id, :name, :value, :one_shot, :installments, :total_value,
                 :installment_value
 
-  def initialize(name, value, installments)
+  def initialize(id, name, value, installments)
+    @id = id
     @name = name
     @value = value.to_d
     @installments = installments.to_i

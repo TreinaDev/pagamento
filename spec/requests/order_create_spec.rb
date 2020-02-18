@@ -15,7 +15,6 @@ describe 'Order create via API POST' do
 
       json = JSON.parse(response.body, symbolize_names: true)
 
-      puts json
       expect(response).to have_http_status(:created)
       expect(json[:message]).to eq('Pagamento efetivado com sucesso')
       expect(json[:order][:order_id]).to eq(24)

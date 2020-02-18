@@ -17,7 +17,8 @@ module Api
       def payment_options(profile, value)
         payment_array = []
         profile.payment_settings.each do |setting|
-          transaction = Transaction.new(setting.payment_method.name,
+          transaction = Transaction.new(setting.payment_method.id,
+                                        setting.payment_method.name,
                                         value, setting.installments)
 
           transaction.calculate(setting.discount, setting.interest_rate)
