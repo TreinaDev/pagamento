@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'client views payments methods' do
   scenario 'sucessfully' do
     client = create(:client)
-    client_profile = create(:client_profile, client: client)
+    create(:client_profile, client: client)
     payment = build(:payment_method, name: 'Débito', tax: 0.5)
 
     payment.save
