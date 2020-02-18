@@ -1,21 +1,47 @@
-<% if @client_profile.errors.any?%>
-  <% @client_profile.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
+<%= render partial: 'shared/navbar' %>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <% if @client_profile.errors.any?%>
+    <% @client_profile.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<h3><%= t('.title') %></h3>
+  <h3><%= t('.title') %></h3>
 
-<%= form_for @client_profile, url: admin_client_profile_path do |f| %>
-  <%= f.label :cnpj %>
-  <%= f.text_field :cnpj %>
-  <%= f.label :company_name %>
-  <%= f.text_field :company_name %>
-  <%= f.label :manager %>
-  <%= f.text_field :manager %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-  <%= f.submit t('.save') %>
-<% end %>
+  <%= form_for @client_profile, url: admin_client_profile_path do |f| %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :company_name %>
+        <%= f.text_field :company_name, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :cnpj %>
+        <%= f.text_field :cnpj, class: 'form-control' %>
+      </div>
+    </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label :manager %>
+          <%= f.text_field :manager, class: 'form-control' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: 'form-control' %>
+        </div>
+      </div>
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+      <%= f.submit t('.save'), class: 'btn btn-primary' %>
+    <% end %>
+</div>
+
+
+
+
+
