@@ -44,6 +44,7 @@ feature 'Admin register a new client' do
     expect(page).to have_content('Endereço não pode ficar em branco')
     expect(page).to have_content('Telefone não pode ficar em branco')
     expect(page).to have_content('E-mail não pode ficar em branco')
-    expect(page).to have_content('Você deve corrigir todos os erros para prosseguir')
+    expect(page).to have_content('Você deve corrigir todos os erros '\
+                                 'para prosseguir')
   end
 end

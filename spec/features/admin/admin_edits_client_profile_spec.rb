@@ -49,7 +49,7 @@ feature 'admin edits client profile' do
     visit admin_client_profiles_path
     click_on client_profile1.company_name
     fill_in 'CNPJ', with: ''
-    fill_in 'Razão Social', with: '' 
+    fill_in 'Razão Social', with: ''
     fill_in 'Representante', with: ''
     fill_in 'Endereço', with: ''
     fill_in 'Telefone', with: ''
@@ -60,6 +60,7 @@ feature 'admin edits client profile' do
     expect(page).to have_content('Representante não pode ficar em branco')
     expect(page).to have_content('Endereço não pode ficar em branco')
     expect(page).to have_content('Telefone não pode ficar em branco')
-    expect(page).to have_content('Você deve corrigir todos os erros para prosseguir')
+    expect(page).to have_content('Você deve corrigir todos os erros para '\
+                                 'prosseguir')
   end
 end
