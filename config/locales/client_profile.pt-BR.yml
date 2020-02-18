@@ -12,6 +12,7 @@ pt-BR:
         email: 'Email'
         password: 'Senha'
         auth_token: 'Token'
+<<<<<<< HEAD
   client_profiles:
     show:
       title: 'Perfil do Cliente'
@@ -20,3 +21,27 @@ pt-BR:
     update: 
       success: 'Perfil alterado com sucesso'
         
+=======
+  admin:
+    client_profiles:
+      show:
+        title: 'Perfil do Cliente'
+      create:
+        success: 'Cliente criado com sucesso'
+        warning: 'Você deve corrigir todos os erros para prosseguir'
+      new:
+        title: 'Novo Cliente'
+        save: 'Salvar'
+      index:
+        clients: 'Clientes'
+        message: 'Não há clientes cadastrados' 
+      edit:
+        title: 'Editar Cliente'
+        save: 'Salvar'
+      update:
+        success: 'Perfil do cliente atualizado com sucesso'
+        warning: 'Você deve corrigir todos os erros para prosseguir'
+
+
+  
+>>>>>>> master
