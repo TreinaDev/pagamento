@@ -124,13 +124,17 @@ Rota chamada no exemplo:
 [
   {
     :message=>"Pagamento efetivado com sucesso",
-    :order=>{:id=>1, :order_id=>24,
-    :order_value=>"500.0",
-    :client_profile_id=>1,
-    :payment_method_id=>1,
-    :client_value=>"475.0",
-    :order_installments=>1,
-    :order_installments_value=>"500.0"
+    :order=>
+      {
+        :id=>1,
+        :order_id=>24,
+        :order_value=>"500.0",
+        :client_profile_id=>1,
+        :payment_method_id=>1,
+        :client_value=>"475.0",
+        :order_installments=>1,
+        :order_installments_value=>"500.0"
+      }
   }
 ]
 ```
