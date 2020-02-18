@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      order: 'Pedido'
+    attributes:
+      order:
+        client_token: 'Token'
+        order_id: 'ID do Pedido'
+        order_value: 'Valor do Pedido'
+        client_profile_id: 'Cliente'
+        payment_method_id: 'Meio de Pagamento'
+        order_installments: 'Parcelas do Pedido'
+        order_installments_value: 'Valor das parcelas do Pedido'

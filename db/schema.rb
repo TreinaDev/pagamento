@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_200029) do
+ActiveRecord::Schema.define(version: 2020_02_18_120422) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,21 @@ ActiveRecord::Schema.define(version: 2020_02_13_200029) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "client_token"
+    t.integer "order_id"
+    t.decimal "order_value"
+    t.integer "client_profile_id", null: false
+    t.integer "payment_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "client_value"
+    t.integer "order_installments"
+    t.decimal "order_installments_value"
+    t.index ["client_profile_id"], name: "index_orders_on_client_profile_id"
+    t.index ["payment_method_id"], name: "index_orders_on_payment_method_id"
+  end
+
   create_table "payment_companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -83,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_200029) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "tax"
+    t.decimal "tax"
   end
 
   create_table "payment_settings", force: :cascade do |t|
@@ -100,6 +115,8 @@ ActiveRecord::Schema.define(version: 2020_02_13_200029) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "client_profiles", "clients"
+  add_foreign_key "orders", "client_profiles"
+  add_foreign_key "orders", "payment_methods"
   add_foreign_key "payment_companies", "payment_methods"
   add_foreign_key "payment_settings", "client_profiles"
   add_foreign_key "payment_settings", "payment_methods"
