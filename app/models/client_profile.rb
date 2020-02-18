@@ -11,7 +11,7 @@ class ClientProfile < ApplicationRecord
   validates_associated :client
 
   def active_payment_methods
-    payment_methods.joins(:payment_companies)
+    payment_methods.includes(:payment_companies)
                    .where.not(payment_companies: { payment_method_id: nil })
   end
 end
