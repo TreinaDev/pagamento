@@ -1,12 +1,12 @@
 pt-BR:
-  home:
-    index:
-      company_name: Nome da companhia aqui
+  shared:
     user_navbar:
+      company_name: Nome da companhia aqui
       about_us: Quem Somos
       what_we_do: O que fazemos?
       payment_methods: Meios de pagamento
     admin_navbar:
+      company_name: Nome da companhia aqui
       clients: Clientes
       new_client: Cadastrar novo cliente
       payment_methods: Meios de pagamento
