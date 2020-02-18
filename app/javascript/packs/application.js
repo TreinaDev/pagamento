@@ -15,3 +15,15 @@ require("channels");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import 'bootstrap'
+
+import '../stylesheet/now-ui-kit.scss'
+
+import '../js/core/bootstrap.min'
+import '../js/core/jquery.min'
+import '../js/core/popper.min'
+import '../js/plugins/bootstrap-datepicker'
+import '../js/plugins/bootstrap-switch'
+import '../js/plugins/nouislider.min'
+import '../js/now-ui-kit'

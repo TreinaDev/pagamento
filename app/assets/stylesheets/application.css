@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
- *= require ui_now/bootstrap.min
- *= require ui_now/now-ui-kit
+ *= require bootstrap.min.css
+ *= require now-ui-kit.css
  */

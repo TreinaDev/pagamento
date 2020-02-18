@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'bootstrap-sass'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.7'
