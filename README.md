@@ -4,9 +4,11 @@ Status](https://travis-ci.com/TreinaDev/pagamento.svg?branch=master)](https://tr
 
 
 # README
+## API TODOS OS MEIOS DE PAGAMENTO DO CLIENTE
 
+A API com retorno de todos os meios de pagamentos escolhidos e configurados pelo cliente é 
 
-## API DE SIMULAÇÃO DE PAGAMETO
+## API DE SIMULAÇÃO DE PAGAMENTO
 
 A Simulação de Pagamento é feita na chamada dessa rota:
 api/v1/client/:token/transaction_simulation?value=
@@ -16,6 +18,8 @@ value = corresponde ao valor total da transação
 
 O exemplo abaixo corresponde ao resultado em json de uma simulação de pagamento com 2 métodos de pagamento configurados:
 o status de sucesso é :ok
+
+```
 [
    {
 :name=>      "Cartão de Debito",
@@ -36,6 +40,7 @@ o status de sucesso é :ok
    
 }
 ]
+```
 
 Caso não tenha configurado ainda um meio de pagamento receberá um array vazio como resposta
 

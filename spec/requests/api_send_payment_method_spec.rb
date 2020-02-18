@@ -10,12 +10,12 @@ describe 'API sends payment methods' do
     create(:payment_setting, client_profile: client_profile,
                              payment_method: payment_method)
 
-    get api_v1_payment_methods_path(auth_token: client_profile.auth_token)
+    get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to have_http_status(:ok)
-    expect(json[0][:name]).to include('Cartão de Debito')
+    expect(json[:payment_methods][0][:name]).to include('Cartão de Debito')
   end
 
   it 'successfully and render correct json' do
@@ -34,12 +34,12 @@ describe 'API sends payment methods' do
     create(:payment_setting, client_profile: client_profile2,
                              payment_method: payment_method2)
 
-    get api_v1_payment_methods_path(auth_token: client_profile1.auth_token)
+    get "/api/v1/client/#{client_profile1.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to have_http_status(:ok)
-    expect(json[0][:name]).to include('Débito em Conta')
+    expect(json[:payment_methods][0][:name]).to include('Débito em Conta')
     expect(json).not_to include('Boleto')
   end
 
@@ -56,13 +56,13 @@ describe 'API sends payment methods' do
     create(:payment_setting, client_profile: client_profile1,
                              payment_method: payment_method2)
 
-    get api_v1_payment_methods_path(auth_token: client_profile1.auth_token)
+    get "/api/v1/client/#{client_profile1.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to have_http_status(:ok)
-    expect(json[0][:name]).to include('Débito em Conta')
-    expect(json[1][:name]).to include('Boleto')
+    expect(json[:payment_methods][0][:name]).to include('Débito em Conta')
+    expect(json[:payment_methods][1][:name]).to include('Boleto')
   end
 
   it 'successfully render payment companies' do
@@ -74,12 +74,12 @@ describe 'API sends payment methods' do
     create(:payment_setting, client_profile: client_profile,
                              payment_method: payment_method)
 
-    get api_v1_payment_methods_path(auth_token: client_profile.auth_token)
+    get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
-    imagem = json[0][:payment_companies][0][:image]
+    imagem = json[:payment_methods][0][:payment_companies][0][:image]
     expect(response).to have_http_status(:ok)
-    expect(json[0][:name]).to include('Cartão de Débito')
+    expect(json[:payment_methods][0][:name]).to include('Cartão de Débito')
     expect(imagem).to include(rails_blob_path(company.image))
   end
 
@@ -94,26 +94,26 @@ describe 'API sends payment methods' do
     create(:payment_setting, client_profile: client_profile,
                              payment_method: payment_method)
 
-    get api_v1_payment_methods_path(auth_token: client_profile.auth_token)
+    get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
-    image1 = json[0][:payment_companies][0][:image]
-    image2 = json[0][:payment_companies][1][:image]
+    image1 = json[:payment_methods][0][:payment_companies][0][:image]
+    image2 = json[:payment_methods][0][:payment_companies][1][:image]
 
     expect(response).to have_http_status(:ok)
-    expect(json[0][:name]).to include('Cartão de Débito')
+    expect(json[:payment_methods][0][:name]).to include('Cartão de Débito')
     expect(image1).to include(rails_blob_path(company1.image))
     expect(image2).to include(rails_blob_path(company2.image))
   end
 
-  it 'return error 404 if not found' do
+  it 'return error 404 if payment settings not found' do
     client = create(:client)
     client_profile = create(:client_profile, auth_token: 'ABC1234567',
                                              client: client)
     payment_method = create(:payment_method, name: 'Cartão de Débito')
     create(:payment_company, payment_method: payment_method)
 
-    get api_v1_payment_methods_path(auth_token: client_profile.auth_token)
+    get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
 
@@ -121,7 +121,7 @@ describe 'API sends payment methods' do
     expect(json[:message]).to include('Não há meio de pagamentos cadastrados')
   end
 
-  it 'dont send payment method withou payment company' do
+  it 'dont send payment method without payment company' do
     client = create(:client)
     client_profile = create(:client_profile, auth_token: 'ABC1234567',
                                              client: client)
@@ -129,10 +129,10 @@ describe 'API sends payment methods' do
     create(:payment_setting, client_profile: client_profile,
                              payment_method: payment_method)
 
-    get api_v1_payment_methods_path(auth_token: client_profile.auth_token)
+    get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
-    expect(response).to have_http_status(404)
-    expect(json[:message]).to include('Não há companhias cadastradas')
+    expect(response).to have_http_status(200)
+    expect(json).to eq ({:payment_methods=>[]})
   end
 end
