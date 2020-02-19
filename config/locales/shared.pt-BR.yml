@@ -13,6 +13,7 @@ pt-BR:
     client_navbar:
       company_name: Nome da companhia aqui
       my_payment_methods: Meus meios de pagamento
+      payment_methods: Meios de pagamento
       dashboard: Dashboard
       my_profile: Meu Perfil
       token: Token

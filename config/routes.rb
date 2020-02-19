@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :payment_methods, only: %i[index show new create edit update]
-  resources :payment_settings, only: %i[show new create]
+  resources :payment_settings, only: %i[index show new create]
 
   root to: 'home#index'
 end

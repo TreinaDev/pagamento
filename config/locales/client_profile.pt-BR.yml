@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     models:
-      client_profile: 'Perfil do Candidato'
+      client_profile: 'Perfil do Cliente'
     attributes:
       client_profile:
         cnpj: 'CNPJ'
@@ -15,7 +15,7 @@ pt-BR:
   client:      
     client_profiles:
       show:
-        title: 'Perfil do Cliente'
+        title: 'Meu Perfil'
       create:
         success: 'Cliente criado com sucesso'
       update: 

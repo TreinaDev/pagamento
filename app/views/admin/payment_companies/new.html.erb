@@ -1,17 +1,31 @@
-<% if @payment_company.errors.full_messages.any? %>
-  <ul>
-    <% @payment_company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <h2 class="text-center"></h2>
 
-<%= form_for @payment_company, url: admin_payment_companies_path do |form| %>
-  <%= form.label :name%>
-  <%= form.text_field :name %>
-  <%= form.label :image %>
-  <%= form.file_field :image%>
-  <%= form.label :payment_method_id%>
-  <%= form.collection_select(:payment_method_id, @payment_methods, :id, :name) %>
-  <%= form.submit 'Salvar' %>
-<% end %>
+  <% if @payment_company.errors.full_messages.any? %>
+    <ul>
+      <% @payment_company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @payment_company, url: admin_payment_companies_path do |form| %>
+    <div class="form-group">
+      <%= form.label :name%>
+      <%= form.text_field :name, class: "form-control col-3" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :payment_method_id%>
+      <%= form.collection_select(:payment_method_id, @payment_methods, :id, 
+                                 :name, options={}, 
+                                 html_options = {class: "form-control col-3"})%>
+    </div>
+    <div>
+      <%= form.label :image %>
+      <%= form.file_field :image, class: "form-control-file"%>
+    </div>
+    <br />
+    
+    <%= form.submit 'Salvar', class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -13,44 +13,44 @@ feature 'Client access dashboard' do
     fill_in 'Senha', with: '123teste@'
     click_on 'Log in'
 
-    expect(current_path).to eq(client_dashboard_index_path)
+    expect(current_path).to eq(payment_methods_path)
   end
 
-  scenario 'and shoud see profile' do
+  scenario 'and should see profile' do
     client = create(:client, email: 'teste@teste.com',
                              password: '123teste@')
     profile = create(:client_profile, client: client)
 
     login_as(client, scope: :client)
-    visit client_dashboard_index_path
+    visit root_path
 
-    click_on 'Perfil'
+    click_on 'Meu Perfil'
 
     expect(current_path).to eq(client_client_profile_path(profile))
   end
 
-  scenario 'and shoud see payment methods' do
+  scenario 'and should see payment methods' do
     client = create(:client, email: 'teste@teste.com',
                              password: '123teste@')
     create(:client_profile, client: client)
 
     login_as(client, scope: :client)
-    visit client_dashboard_index_path
+    visit root_path
 
-    click_on 'Meios de Pagamento'
+    click_on 'Meios de pagamento'
 
     expect(current_path).to eq(payment_methods_path)
   end
 
-  scenario 'and shoud logout' do
+  scenario 'and should logout' do
     client = create(:client, email: 'teste@teste.com',
                              password: '123teste@')
     create(:client_profile, client: client)
 
     login_as(client, scope: :client)
-    visit client_dashboard_index_path
+    visit root_path
 
-    click_on 'Sair'
+    click_on 'Logout'
 
     expect(current_path).to eq(root_path)
     expect(page).to have_link('Login')

@@ -20,11 +20,10 @@ feature 'client chooses payments settings' do
     fill_in 'Desconto', with: 0
     click_on 'Salvar'
 
-    expect(page).to have_content(payment_method1.name)
+    expect(page).to have_content('Paypal')
     expect(page).to have_content('Número de parcelas: 10x')
     expect(page).to have_content('Juros: 6.0%')
     expect(page).to have_content('Desconto: 0.0%')
-    expect(page).to have_css("img[src*='mastercard']")
   end
 
   scenario 'and must not be blank' do

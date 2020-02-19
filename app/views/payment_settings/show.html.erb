@@ -1,13 +1,10 @@
-<h1><%= "Configurações de #{@payment_setting.payment_method.name}" %></h1>
+<div class="container">
+  <h2 class="text-center">
+    <%= "Configurações de #{@payment_setting.payment_method.name}" %>
+  </h2>
 
-<div>
-  <% @payment_setting.payment_method.payment_companies.each do |image| %>
-  <%= image_tag(image.image, size: '25x25') %>
-  <% end %>
+  <p><%= "Número de parcelas: #{@payment_setting.installments}x" %></p>
+  <p><%= "Juros: #{@payment_setting.interest_rate}%" %></p>
+  <p><%= "Desconto: #{@payment_setting.discount}%" %></p>
+
 </div>
-
-<p><%= "Número de parcelas: #{@payment_setting.installments}x" %></p>
-<p><%= "Juros: #{@payment_setting.interest_rate}%" %></p>
-<p><%= "Desconto: #{@payment_setting.discount}%" %></p>
-
-

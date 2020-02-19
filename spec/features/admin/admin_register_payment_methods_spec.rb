@@ -14,7 +14,7 @@ feature 'Admin register payment methods' do
     click_on 'Salvar'
 
     expect(page).to have_content('Meio de pagamento cadastrado com sucesso!')
-    expect(page).to have_content('Meio de pagamento: Cartão de crédito')
+    expect(page).to have_content('Cartão de crédito')
     expect(page).to have_content('Taxa: 5.0%')
   end
 
