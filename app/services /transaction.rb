@@ -20,7 +20,7 @@ class Transaction
   end
 
   def calculate_interest_rate(interest_rate)
-    @total_value = @value + ((interest_rate / 100) * @value) 
+    @total_value = @value + ((interest_rate / 100) * @value)
   end
 
   def calculate_installments

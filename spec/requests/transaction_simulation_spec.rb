@@ -55,7 +55,7 @@ describe 'Transaction Simulation' do
           'transaction_simulation?value=2000'
 
       json = JSON.parse(response.body, symbolize_names: true)
-        pp json
+
       expect(response).to have_http_status(:ok)
       expect(json.count).to eq(2)
 
