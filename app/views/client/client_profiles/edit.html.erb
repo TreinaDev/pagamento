@@ -1,0 +1,26 @@
+<% if @client_profile.errors.full_messages.any? %>
+  <ul>
+    <% @client_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @client_profile, url: client_client_profile_path(@client_profile) do |f| %>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div>
+    <%= f.label :manager %>
+    <%= f.text_field :manager %>
+  </div>
+
+  <%= f.submit 'Salvar' %>
+<% end %>

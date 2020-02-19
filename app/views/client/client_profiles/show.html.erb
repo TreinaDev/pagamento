@@ -1,0 +1,9 @@
+<h1><%= t('.title') %></h1>
+<p> <%= ClientProfile.human_attribute_name(:cnpj)%>: <%= @client_profile.cnpj%></p>
+<p> <%= ClientProfile.human_attribute_name(:company_name) %>: <%= @client_profile.company_name %></p>
+<p> <%= ClientProfile.human_attribute_name(:auth_token) %>: <%= @client_profile.auth_token %></p>
+<p> <%= ClientProfile.human_attribute_name(:email) %>: <%= @client_profile.client.email %></p>
+<p> <%= ClientProfile.human_attribute_name(:address) %>: <%= @client_profile.address %></p>
+<p> <%= ClientProfile.human_attribute_name(:phone) %>: <%= @client_profile.phone %></p>
+<p> <%= ClientProfile.human_attribute_name(:manager) %>: <%= @client_profile.manager %></p>
+<%= link_to 'Editar', edit_client_client_profile_path(@client_profile)%>
