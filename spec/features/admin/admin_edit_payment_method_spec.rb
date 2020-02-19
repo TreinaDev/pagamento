@@ -11,7 +11,7 @@ feature 'Admin edit payment method' do
     click_on 'Boleto'
     click_on 'Editar'
     fill_in 'Nome', with: 'Boleto'
-    fill_in 'Taxa', with: 0.03
+    fill_in 'Taxa', with: 3
     click_on 'Salvar'
 
     expect(page).to have_content('Meio de pagamento atualizado com sucesso!')
@@ -20,7 +20,7 @@ feature 'Admin edit payment method' do
   end
 
   scenario 'and must fill all fields' do
-    create(:payment_method, :boleto, tax: 0.05)
+    create(:payment_method, :boleto, tax: 5)
     admin = create(:admin)
 
     login_as(admin, scope: :admin)

@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="text-center">Meus meios de pagamento</h2>
+
+
+  <% @payment_settings.each do |setting| %>
+    <h1><%= link_to setting.payment_method.name, payment_setting_path(setting) %></h1>
+  <% end %>
+</div>

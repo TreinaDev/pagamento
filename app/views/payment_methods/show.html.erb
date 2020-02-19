@@ -1,12 +1,15 @@
 <div class="container">
   <h2 class="text-center"><%= @payment_method.name%></h2>
-  <p>Taxa: <%= @payment_method.tax %>%</p>
+  <h4>Taxa: <%= @payment_method.tax %>%</h4>
   
-  <p>Bandeiras\Bancos\Serviços<p>
-  <p><% @payment_companies.each do |company|%>
-    <%= link_to image_tag company.image, size:"100x80"%>
+  <h4>Bandeiras\Bancos\Serviços</h4>
+  <% @payment_companies.each do |company|%>
+
+    <div>
+      <%= image_tag company.image, size:"100x80"%> <br>
+      <%= company.name %>
+    </div>
   <% end %>
-  </p>
   <% if admin_signed_in? %>
     <%= link_to 'Editar', edit_payment_method_path(@payment_method), 
                 class: "btn btn-primary" %>

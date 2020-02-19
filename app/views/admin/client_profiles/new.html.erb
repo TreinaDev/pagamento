@@ -1,25 +1,46 @@
-<% if @client_profile.errors.any?%>
-  <% @client_profile.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
+<div class="container">
+  <% if @client_profile.errors.any?%>
+    <% @client_profile.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<h3><%= t('.title') %></h3>
+  <h3 class="text-center"><%= t('.title') %></h3>
+  <form>
+    <%= form_for @client_profile, url: admin_client_profiles_path do |f| %>
+      <div class="form-group">
+        <%= f.label :cnpj %>
+        <%= f.text_field :cnpj, class: "form-control col-3" %>
+      </div>
 
-<%= form_for @client_profile, url: admin_client_profiles_path do |f| %>
-  <%= f.label :cnpj %>
-  <%= f.text_field :cnpj %>
-  <%= f.label :company_name %>
-  <%= f.text_field :company_name %>
-  <%= f.label :manager %>
-  <%= f.text_field :manager %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-  <%= f.fields_for :client do |client_form| %>
-    <%= client_form.label :email%>
-    <%= client_form.text_field :email%>
-  <% end %>
-  <%= f.submit t('.save') %>
-<% end %>
+      <div class="form-group">
+        <%= f.label :company_name %>
+        <%= f.text_field :company_name, class: "form-control col-3" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :manager %>
+        <%= f.text_field :manager, class: "form-control col-3" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: "form-control col-5" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class: "form-control col-3" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.fields_for :client do |client_form| %>
+          <%= client_form.label :email%>
+          <%= client_form.text_field :email, class: "form-control col-3"%>
+        <% end %>
+      </div>
+
+      <%= f.submit t('.save'), class: 'btn btn-primary' %>
+    <% end %>
+  </form>
+</div>

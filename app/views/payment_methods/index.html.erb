@@ -2,9 +2,9 @@
   <h2 class="text-center">Meios de Pagamento</h2>
     <div> 
       <% if admin_signed_in? %>
-        <%= link_to 'Cadastra meio de pagamento', new_payment_method_path, 
+        <%= link_to 'Cadastrar novo meio de pagamento', new_payment_method_path,
                     class: "btn btn-primary"%>
-        <%= link_to 'Vincula Empresas', new_admin_payment_company_path, 
+        <%= link_to 'Vincular Empresas', new_admin_payment_company_path,
                     class: "btn btn-primary" %>
       <% end %>
     </div>
@@ -18,7 +18,7 @@
     <% @payment_methods.each do |payment| %>
       <div class="card" style="width: 20rem; margin-right: 2rem;">
         <div class="card-body">
-          <h4 class="card-title text-center"><%=payment.name%></h4>
+          <h4 class="card-title text-center"><%= link_to payment.name, payment_method_path(payment)%></h4>
           <div> 
             <% payment.payment_companies.each do |company| %>
               <%= image_tag company.image, size: '100x80'%>

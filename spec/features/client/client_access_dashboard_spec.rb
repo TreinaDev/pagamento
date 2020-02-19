@@ -16,7 +16,7 @@ feature 'Client access dashboard' do
     expect(current_path).to eq(client_dashboard_index_path)
   end
 
-  scenario 'and shoud see profile' do
+  scenario 'and should see profile' do
     client = create(:client, email: 'teste@teste.com',
                              password: '123teste@')
     profile = create(:client_profile, client: client)
@@ -29,7 +29,7 @@ feature 'Client access dashboard' do
     expect(current_path).to eq(client_client_profile_path(profile))
   end
 
-  scenario 'and shoud see payment methods' do
+  scenario 'and should see payment methods' do
     client = create(:client, email: 'teste@teste.com',
                              password: '123teste@')
     create(:client_profile, client: client)
@@ -42,7 +42,7 @@ feature 'Client access dashboard' do
     expect(current_path).to eq(payment_methods_path)
   end
 
-  scenario 'and shoud logout' do
+  scenario 'and should logout' do
     client = create(:client, email: 'teste@teste.com',
                              password: '123teste@')
     create(:client_profile, client: client)

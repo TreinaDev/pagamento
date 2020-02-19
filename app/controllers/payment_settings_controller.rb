@@ -1,4 +1,8 @@
 class PaymentSettingsController < ApplicationController
+  def index
+    @payment_settings = PaymentSetting.where(client_profile_id: current_client)
+  end
+
   def show
     @payment_setting = PaymentSetting.find(params[:id])
   end
