@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-client = Client.create(email:'test@test.com', password: '123teste')
+client = Client.create(email:'client@teste.com', password: '123teste')
 ClientProfile.create(cnpj: '111111111-11', company_name: 'Empresa A', 
                      manager: 'Fulano', address: 'Paulista, 1000', 
                      phone: '11-2999-9999', auth_token: 'adhfad12123', 
                      client_id: client.id) 
+
+Admin.create(email: 'admin@teste.com', password: '123teste')
 
 debito = PaymentMethod.create(name: 'Débito em Conta', tax: 0.01)
 pay_co01 = PaymentCompany.create(name: 'MasterCard',
