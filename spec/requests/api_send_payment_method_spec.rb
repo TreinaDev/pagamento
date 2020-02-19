@@ -13,9 +13,12 @@ describe 'API sends payment methods' do
     get "/api/v1/client/#{client_profile.auth_token}/payment_methods"
 
     json = JSON.parse(response.body, symbolize_names: true)
+    methods = json[:payment_methods][0]
 
     expect(response).to have_http_status(:ok)
-    expect(json[:payment_methods][0][:name]).to include('Cartão de Debito')
+    expect(json[:payment_methods].count).to eq 1
+    expect(methods[:name]).to include('Cartão de Debito')
+    expect(methods[:payment_companies][0][:name]).to include('MasterCard')
   end
 
   it 'successfully and render correct json' do
@@ -39,6 +42,7 @@ describe 'API sends payment methods' do
     json = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to have_http_status(:ok)
+    expect(json[:payment_methods].count).to eq 1
     expect(json[:payment_methods][0][:name]).to include('Débito em Conta')
     expect(json).not_to include('Boleto')
   end
@@ -61,11 +65,12 @@ describe 'API sends payment methods' do
     json = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to have_http_status(:ok)
+    expect(json[:payment_methods].count).to eq 2
     expect(json[:payment_methods][0][:name]).to include('Débito em Conta')
     expect(json[:payment_methods][1][:name]).to include('Boleto')
   end
 
-  it 'successfully render payment companies' do
+  it 'successfully render payment company image' do
     client = create(:client)
     client_profile = create(:client_profile, auth_token: 'ABC1234567',
                                              client: client)
@@ -78,7 +83,9 @@ describe 'API sends payment methods' do
 
     json = JSON.parse(response.body, symbolize_names: true)
     imagem = json[:payment_methods][0][:payment_companies][0][:image]
+
     expect(response).to have_http_status(:ok)
+    expect(json[:payment_methods].count).to eq 1
     expect(json[:payment_methods][0][:name]).to include('Cartão de Débito')
     expect(imagem).to include(rails_blob_path(company.image))
   end
@@ -101,7 +108,10 @@ describe 'API sends payment methods' do
     image2 = json[:payment_methods][0][:payment_companies][1][:image]
 
     expect(response).to have_http_status(:ok)
+    expect(json[:payment_methods].count).to eq 1
+    expect(json[:payment_methods][0][:payment_companies].count).to eq 2
     expect(json[:payment_methods][0][:name]).to include('Cartão de Débito')
+    expect(json.count).to eq 1
     expect(image1).to include(rails_blob_path(company1.image))
     expect(image2).to include(rails_blob_path(company2.image))
   end
@@ -133,6 +143,7 @@ describe 'API sends payment methods' do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
+    expect(json[:payment_methods].count).to eq 0
     expect(response).to have_http_status(200)
     expect(json).to eq(payment_methods: [])
   end
