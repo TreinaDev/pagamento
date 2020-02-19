@@ -16,11 +16,11 @@ class Transaction
   end
 
   def calculate_discount(discount_rate)
-    @one_shot = @value - (discount_rate * @value)
+    @one_shot = @value - ((discount_rate / 100) * @value)
   end
 
   def calculate_interest_rate(interest_rate)
-    @total_value = @value + (interest_rate * @value)
+    @total_value = @value + ((interest_rate / 100) * @value) 
   end
 
   def calculate_installments

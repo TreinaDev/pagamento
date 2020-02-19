@@ -13,13 +13,11 @@ class PaymentSettingsController < ApplicationController
     @payment_setting = PaymentSetting.new(payment_settings_params)
     @client = current_client
     @payment_setting.client_profile = @client.client_profile
-    if @payment_setting.save
-      redirect_to @payment_setting
-    else
-      @payment_companies = PaymentCompany.all
-      @payment_methods = PaymentMethod.all
-      render :new
-    end
+    return redirect_to @payment_setting if @payment_setting.save
+
+    @payment_companies = PaymentCompany.all
+    @payment_methods = PaymentMethod.all
+    render :new
   end
 
   private
