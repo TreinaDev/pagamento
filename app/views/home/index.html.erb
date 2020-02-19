@@ -1,11 +1,11 @@
 <body class="landing-page sidebar-collapse">
 <div class="wrapper">
-  <div class="page-header page-header-small">
+  <div class="page-header page-header-small banner-business">
     <div class="page-header-image" data-parallax="true" data-background-color="black">
     </div>
     <div class="content-center">
       <div class="container">
-        <h1 class="title">Teste de texto.</h1>
+        <h1 class="title">Equipe de pagamento</h1>
         <div class="text-center">
           <a href="#pablo" class="btn btn-primary btn-icon btn-round">
             <i class="fab fa-facebook-square"></i>
@@ -24,8 +24,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
-          <h2 class="title">Who we are?</h2>
-          <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+          <h2 class="title">Quem somos nós?</h2>
+          <h5 class="description">Somos um grupo de seis pessoas, que surgiu no TreinaDev, que é um programa de treinamento para desenvolvedores oferecido pela
+           Campus Code, e estamos criando uma aplicação como projeto final. Nesse projeto criamos uma api que recebe e gerencia pagamentos.</h5>
         </div>
       </div>
       <div class="separator separator-primary"></div>
@@ -33,27 +34,35 @@
         <div class="row">
           <div class="col-md-6">
             <div class="image-container image-left" style="background-image: url('')">
+              <h4 class="text-center"><b>Confirmação de pagamento</b></h4>
+              <%= image_tag('card4.png', class: "rouded-icon") %>
               <!-- First image on the left side -->
-              <p class="blockquote blockquote-primary">"Over the span of the satellite record, Arctic sea ice has been declining significantly, while sea ice in the Antarctichas increased very slightly"
+              <p class="blockquote blockquote-primary mt-5">"Eu acho que produtos excelentes devem mesclar dois pontos: o ponto de vista da tecnologia e o ponto de vista dos clientes. Você precisa dos dois."
                 <br>
                 <br>
-                <small>-NOAA</small>
+                <small>-Steve Jobs</small>
               </p>
             </div>
             <!-- Second image on the left side of the article -->
-            <div class="image-container" style="background-image: url('')"></div>
+            <div class="image-container" style="background-image: url('')">
+              <h4 class="text-center"><b>Facilidade para consumir a api</b></h4>
+              <%= image_tag('card-json.png', class: "rouded-icon") %>
+            </div>
           </div>
           <div class="col-md-5">
             <!-- First image on the right side, above the article -->
-            <div class="image-container image-right" style="background-image: url('')"></div>
-            <h3>So what does the new record for the lowest level of winter ice actually mean</h3>
-            <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens with climate change. Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter. And year-by-year, for all kinds of natural reasons, there’s huge variety of the state of the ice.
-            </p>
-            <p>
-              For a start, it does not automatically follow that a record amount of ice will melt this summer. More important for determining the size of the annual thaw is the state of the weather as the midnight sun approaches and temperatures rise. But over the more than 30 years of satellite records, scientists have observed a clear pattern of decline, decade-by-decade.
-            </p>
-            <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens with climate change. Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter. And year-by-year, for all kinds of natural reasons, there’s huge variety of the state of the ice.
-            </p>
+            <div class="image-container image-right mt-5" style="background-image: url('')">
+              <h4 class="text-center"><b>Tratativas</b>
+                <p><%= image_tag('card3.png', class: "rouded-icon") %></p>
+                <p><%= image_tag('card3.png', class: "rouded-icon") %></p>
+                <p><%= image_tag('card3.png', class: "rouded-icon") %></p>
+              </h4>
+            </div>
+            <h3 class="text-center">O que oferecemos</h3>
+            <p>Oferecemos uma API que retorna de todos os meios de pagamentos escolhidos e configurados pelo cliente.</p>
+            <p>Para o cliente ver como funciona, ofecemos uma simulação de pagamento.</p>
+            <p>Facilidade para implementar o nosso gateway</p>
+            <p>Suporte de uma equipe altamente capacitada</p>
           </div>
         </div>
       </div>
@@ -61,16 +70,13 @@
   </div>
   <div class="section section-team text-center">
     <div class="container">
-      <h2 class="title">Here is our team</h2>
+      <h2 class="title"> Nosso time</h2>
       <div class="team">
         <div class="row">
           <div class="col-md-4">
             <div class="team-player">
-              <img src="./app/assets/images/mastercard.png" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-              <h4 class="title">Romina Hadid</h4>
-              <p class="category text-primary">Model</p>
-              <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                <a href="#">links</a> for people to be able to follow them outside the site.</p>
+              <h4 class="title">Larissa</h4>
+              <p class="category text-primary">Desenvolvedora</p>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-instagram"></i></a>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook-square"></i></a>
@@ -78,22 +84,43 @@
           </div>
           <div class="col-md-4">
             <div class="team-player">
-              <img src="../assets/img/ryan.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-              <h4 class="title">Ryan Tompson</h4>
-              <p class="category text-primary">Designer</p>
-              <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                <a href="#">links</a> for people to be able to follow them outside the site.</p>
+              <h4 class="title">Gustavo</h4>
+              <p class="category text-primary">Desenvolvedor</p>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-linkedin"></i></a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="team-player">
-              <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-              <h4 class="title">Eva Jenner</h4>
-              <p class="category text-primary">Fashion</p>
-              <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                <a href="#">links</a> for people to be able to follow them outside the site.</p>
+              <h4 class="title">Mariana</h4>
+              <p class="category text-primary">Desenvolvedora</p>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-google-plus"></i></a>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-player">
+              <h4 class="title">Rubens</h4>
+              <p class="category text-primary">Desenvolvedor</p>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-google-plus"></i></a>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-player">
+              <h4 class="title">Kelly</h4>
+              <p class="category text-primary">Desenvolvedora</p>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-google-plus"></i></a>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
+              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-player">
+              <h4 class="title">Bruno</h4>
+              <p class="category text-primary">Desenvolvedora</p>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-google-plus"></i></a>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
