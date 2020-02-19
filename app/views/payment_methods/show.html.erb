@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-<h1>Meio de pagamento: <%= @payment_method.name%></h1>
-<p>Taxa: <%= @payment_method.tax %>%</p>
-=======
 <div class="container">
   <h2 class="text-center"><%= @payment_method.name%></h2>
   <h4>Taxa: <%= @payment_method.tax %>%</h4>
   
   <h4>Bandeiras\Bancos\Serviços</h4>
   <% @payment_companies.each do |company|%>
->>>>>>> 101600c8c0be18946c07b3e12c2261e3e6237bf0
 
     <div>
       <%= image_tag company.image, size:"100x80"%> <br>
