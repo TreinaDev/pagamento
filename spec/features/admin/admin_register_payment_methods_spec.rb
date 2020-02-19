@@ -9,7 +9,7 @@ feature 'Admin register payment methods' do
     click_on 'Meios de pagamento'
     click_on 'Cadastrar novo meio de pagamento'
     fill_in 'Nome', with: 'Cartão de crédito'
-    fill_in 'Taxa', with: 0.05
+    fill_in 'Taxa', with: 5
 
     click_on 'Salvar'
 
