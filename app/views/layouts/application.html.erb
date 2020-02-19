@@ -13,15 +13,17 @@
   </head>
 
   <body>
-    <%= notice %>
-    <%= alert %>
+    <%= render partial: 'shared/navbar' %>
+    <br>
+    <br>
+    <br>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%=key %>" role="alert"> <%= value %></div>
+    <% end %>
     <%= yield %>
-    
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>" role="alert"> <%= value %></div>
     <% end %>
-
-    <%= notice %>
 
   </body>
 </html>
