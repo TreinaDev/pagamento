@@ -40,14 +40,14 @@ describe 'Transaction Simulation' do
 
       setting_one = create(:payment_setting, client_profile: profile_first,
                                              payment_method: payment_method_one,
-                                             discount: 0.05,
+                                             discount: 5,
                                              installments: 2,
-                                             interest_rate: 0.2)
+                                             interest_rate: 20)
       setting_two = create(:payment_setting, client_profile: profile_first,
                                              payment_method: payment_method_two,
-                                             discount: 0.1,
+                                             discount: 10,
                                              installments: 5,
-                                             interest_rate: 0.3)
+                                             interest_rate: 30)
       create(:payment_setting, client_profile: profile_second,
                                payment_method: payment_method_three)
 

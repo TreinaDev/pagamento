@@ -7,6 +7,7 @@ class PaymentMethodsController < ApplicationController
 
   def show
     @payment_method = PaymentMethod.find(params[:id])
+    @payment_companies = PaymentCompany.where(payment_method: @payment_method)
   end
 
   def new

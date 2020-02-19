@@ -1,6 +1,10 @@
 <h1>Meio de pagamento: <%= @payment_method.name%></h1>
 <p>Taxa: <%= @payment_method.tax*100 %>%</p>
 
+<p><% @payment_companies.each do |company|%>
+  <%= company.name %>
+<% end %>
+</p>
 <% if admin_signed_in? %>
   <%= link_to 'Editar', edit_payment_method_path(@payment_method) %>
 <% end %>

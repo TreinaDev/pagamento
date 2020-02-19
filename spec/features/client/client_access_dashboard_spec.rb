@@ -10,8 +10,7 @@ feature 'Client access dashboard' do
     click_on 'Login'
 
     fill_in 'E-mail', with: client.email
-    fill_in 'Senha', with: client.password
-
+    fill_in 'Senha', with: '123teste@'
     click_on 'Log in'
 
     expect(current_path).to eq(client_dashboard_index_path)
@@ -55,5 +54,11 @@ feature 'Client access dashboard' do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_link('Login')
+  end
+
+  scenario 'and try to access dashboard without a login client' do
+    visit client_dashboard_index_path
+
+    expect(current_path).to eq(client_session_path)
   end
 end

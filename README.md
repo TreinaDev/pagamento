@@ -64,6 +64,7 @@ o status de sucesso é :ok
 ```
 [
    {
+:id=>      1
 :name=>      "Cartão de Debito",
 :value=>      "2000.0",
 :installments=>2,
@@ -123,29 +124,17 @@ Rota chamada no exemplo:
 [
   {
     :message=>"Pagamento efetivado com sucesso",
-    :order=>{:id=>1, :order_id=>24,
-    :order_value=>"500.0",
-    :client_profile_id=>1,
-    :payment_method_id=>1,
-    :client_value=>"475.0",
-    :order_installments=>1,
-    :order_installments_value=>"500.0"},
-    :client=>
+    :order=>
       {
         :id=>1,
-        :cnpj=>"1234561232345",
-        :company_name=>"Campus Code",
-        :manager=>"João",
-        :address=>"Alameda Santos, 1293",
-        :phone=>"11 99999-9999",
-        :client_id=>1
-       },
-    :payment_method=>
-      {
-        :id=>1,
-        :name=>"Débito em Conta",
-        :tax=>"0.05"
-       }
+        :order_id=>24,
+        :order_value=>"500.0",
+        :client_profile_id=>1,
+        :payment_method_id=>1,
+        :client_value=>"475.0",
+        :order_installments=>1,
+        :order_installments_value=>"500.0"
+      }
   }
 ]
 ```

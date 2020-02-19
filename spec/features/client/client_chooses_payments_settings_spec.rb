@@ -16,15 +16,15 @@ feature 'client chooses payments settings' do
 
     select payment_method1.name, from: 'Tipo de pagamento'
     fill_in 'Número de parcelas', with: 10
-    fill_in 'Juros', with: 0.6
+    fill_in 'Juros', with: 6
     fill_in 'Desconto', with: 0
     click_on 'Salvar'
 
     expect(page).to have_content(payment_method1.name)
     expect(page).to have_content('Número de parcelas: 10x')
-    expect(page).to have_content('Juros: 0.6%')
+    expect(page).to have_content('Juros: 6.0%')
     expect(page).to have_content('Desconto: 0.0%')
-    expect(page).to have_css("img[src*='mastercard.png']")
+    expect(page).to have_css("img[src*='mastercard']")
   end
 
   scenario 'and must not be blank' do
