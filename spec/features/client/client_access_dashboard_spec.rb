@@ -10,8 +10,7 @@ feature 'Client access dashboard' do
     click_on 'Login'
 
     fill_in 'E-mail', with: client.email
-    fill_in 'Senha', with: client.password
-
+    fill_in 'Senha', with: '123teste@'
     click_on 'Log in'
 
     expect(current_path).to eq(client_dashboard_index_path)

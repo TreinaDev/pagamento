@@ -12,16 +12,14 @@ pt-BR:
         email: 'Email'
         password: 'Senha'
         auth_token: 'Token'
-<<<<<<< HEAD
-  client_profiles:
-    show:
-      title: 'Perfil do Cliente'
-    create:
-      success: 'Cliente criado com sucesso'
-    update: 
-      success: 'Perfil alterado com sucesso'
-        
-=======
+  client:      
+    client_profiles:
+      show:
+        title: 'Perfil do Cliente'
+      create:
+        success: 'Cliente criado com sucesso'
+      update: 
+        success: 'Perfil alterado com sucesso'
   admin:
     client_profiles:
       show:
@@ -44,4 +42,3 @@ pt-BR:
 
 
   
->>>>>>> master
