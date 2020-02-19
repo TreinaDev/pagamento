@@ -1,6 +1,7 @@
-<h1>Configure sua forma de pagamento</h1>
-
 <div class="container">
+  <h2 class="text-center">Configure sua forma de pagamento</h2>
+
+
 <% if @payment_setting.errors.full_messages.any? %>
   <p>Foram verificados os seguintes erros:</p>
   <ul>
@@ -9,9 +10,7 @@
     <% end %>
   </ul>
 <% end %>
-</div>
 
-<div class="container">
 <%= form_with model: @payment_setting, local: true do |f| %>
   <div class="form-group">
     <%= f.label :payment_method_id, 'Tipo de pagamento' %>

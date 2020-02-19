@@ -1,4 +1,11 @@
-<h1><%= t('.title') %></h1>
-<p> <%= ClientProfile.human_attribute_name(:name) %><%= @payment_company.name%></p>
-<p> <%= ClientProfile.human_attribute_name(:image) %><%= image_tag(@payment_company.image, size: "25x25") %></p>
-<p> <%= ClientProfile.human_attribute_name(:payment_method_id) %><%= @payment_company.payment_method.name%></p>
+<div class="container">
+  <h2 class="text-center"><%= @payment_company.name%></h2>
+  <p> 
+    <%= ClientProfile.human_attribute_name(:image) %>
+    <%= image_tag(@payment_company.image, size: "100x80") %>
+  </p>
+  <p> 
+    <%= ClientProfile.human_attribute_name(:payment_method_id) %>
+    <%= @payment_company.payment_method.name%>
+  </p>
+</div>

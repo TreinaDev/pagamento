@@ -25,7 +25,7 @@ feature 'client views payments methods' do
   scenario 'client views payment companies' do
     client = create(:client)
     create(:client_profile, client: client)
-    payment1 = build(:payment_method, name: 'Débito', tax: 0.5)
+    payment1 = build(:payment_method, name: 'Débito', tax: 5)
     payment1.save
     company1 = create(:payment_company, :visa, payment_method: payment1)
     company2 = create(:payment_company, :boleto, payment_method: payment1)
