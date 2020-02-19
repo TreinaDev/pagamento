@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin edit payment method' do
   scenario 'successfully' do
-    create(:payment_method, :boleto, tax: 0.05)
+    create(:payment_method, :boleto, tax: 5)
     admin = create(:admin)
 
     login_as(admin, scope: :admin)
