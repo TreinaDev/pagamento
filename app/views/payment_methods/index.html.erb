@@ -3,6 +3,7 @@
 
 <% if admin_signed_in? %>
   <%= link_to 'Cadastrar novo meio de pagamento', new_payment_method_path %>
+  <%= link_to 'Vincular Empresas', new_admin_payment_company_path %>
 <% end %>
 
 <% if @payment_methods.any? %>

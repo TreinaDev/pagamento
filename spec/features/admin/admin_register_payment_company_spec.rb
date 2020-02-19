@@ -6,7 +6,10 @@ context 'admin register payment company' do
     admin = create(:admin)
     login_as(admin, scope: :admin)
 
-    visit new_admin_payment_company_path
+    visit root_path
+    click_on 'Meios de pagamento'
+    click_on 'Vincular Empresas'
+
     fill_in 'Bandeira/Banco/Serviço', with: 'Mastercard'
     attach_file 'Image', Rails.root.join('spec/support/mastercard.png')
     select 'Débito', from: 'Metodo de pagamento'
