@@ -1,12 +1,16 @@
-<h1>Meio de pagamento: <%= @payment_method.name%></h1>
-<p>Taxa: <%= @payment_method.tax*100 %>%</p>
-
-<p><% @payment_companies.each do |company|%>
-  <%= company.name %>
-<% end %>
-</p>
-<% if admin_signed_in? %>
-  <%= link_to 'Editar', edit_payment_method_path(@payment_method) %>
-<% end %>
-
-<%= link_to 'Voltar', :back %>
+<div class="container">
+  <h2 class="text-center"><%= @payment_method.name%></h2>
+  <p>Taxa: <%= @payment_method.tax %>%</p>
+  
+  <p>Bandeiras\Bancos\Serviços<p>
+  <p><% @payment_companies.each do |company|%>
+    <%= link_to image_tag company.image, size:"100x80"%>
+  <% end %>
+  </p>
+  <% if admin_signed_in? %>
+    <%= link_to 'Editar', edit_payment_method_path(@payment_method), 
+                class: "btn btn-primary" %>
+  <% end %>
+  
+  <%= link_to 'Voltar', :back, class: "btn btn-ssecondary" %>
+</div>
